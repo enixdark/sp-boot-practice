@@ -5,6 +5,8 @@ package com.example;
  */
 public abstract  class BaseEntity<T> extends Entity<T> {
     private T id;
+    private boolean isModified;
+    private String name;
 
     public BaseEntity(T id, String name){
         this.setId(id);
@@ -26,5 +28,13 @@ public abstract  class BaseEntity<T> extends Entity<T> {
 
     public void setName(String name){
         this.name = name;
+    }
+
+    public boolean isModified() {
+        return isModified;
+    }
+
+    public void setModified(boolean modified) {
+        isModified = modified;
     }
 }

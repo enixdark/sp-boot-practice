@@ -1,4 +1,4 @@
-package com.example;
+package com.example.calculation;
 
 import com.google.common.collect.Lists;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.PathVariable;
 import static org.springframework.web.bind.annotation.RequestMethod.GET;
-import java.util.ArrayList;
+
 import java.util.List;
 
 /**

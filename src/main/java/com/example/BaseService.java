@@ -9,7 +9,7 @@ public class BaseService<TE, T> extends ReadOnlyBaseService<TE, T> {
 
     private Repository<TE, T> _repository;
 
-    BaseService(Repository<TE, T> repository){
+    public BaseService(Repository<TE, T> repository){
         super(repository);
         _repository = repository;
     }

@@ -1,0 +1,77 @@
+#server:
+#  port: ${vcap.application.port:8761}   # HTTP port
+
+info:
+  component: Zuul Server
+spring:
+  application:
+    name: zuul-server
+endpoints:
+  restart:
+    enabled: true
+  shutdown:
+    enabled: true
+  health:
+    sensitive: false
+
+zuul:
+  ignoredServices: "*"
+  routes:
+    restaurantapi:
+      path: / restaurantapi/**
+      serviceId: restaurant-service
+      stripPrefix: true
+server:
+  port: 8765
+
+eureka:
+  instance:
+#    hostname: localhost
+    leaseRenewalIntervalInSeconds: 3
+    metadataMap:
+      instanceId: ${vcap.application.instance_id:${spring.application.name}:${spring.application.instance_id:${random.value}}}
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+    fetchRegistry: false
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+    registerWithEureka: false
+    fetchRegistry: false
+  server:
+    waitTimeInMsWhenSyncEmpty: 0
+
+#info:
+#  component: Zuul Server
+#spring:
+#  application:
+#     name: zuul-server
+#endpoints:
+#    restart:
+#        enabled: true
+#    shutdown:
+#        enabled: true
+#    health:
+#        sensitive: false
+#
+#zuul:
+#    ignoredServices: "*"
+#    routes:
+#        restaurantapi:
+#            path: / v1/**
+#            serviceId: restaurant-service
+#            stripPrefix: true
+#server:
+#    port: 8765
+##server:
+##  port: ${vcap.application.port:8761}   # HTTP port
+#
+#eureka:
+#  instance:
+#      leaseRenewalIntervalInSeconds: 3
+#      metadataMap:
+#        instanceId: ${vcap.application.instance_id:${spring.application.name}:${spring.application.instance_id:${random.value}}}
+#      serviceUrl:
+#        defaultZone: http://localhost:8761/eureka/
+#      fetchRegistry: false
+

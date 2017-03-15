@@ -1,7 +1,10 @@
-package com.example;
+package com.example.restaurant;
 
+import com.example.BaseEntity;
+import com.example.Table;
 import com.google.common.collect.Lists;
 
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -22,5 +25,13 @@ public class Restaurant extends BaseEntity<String> {
 
     public void setTables(List<Table> tables) {
         this.tables = tables;
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append(String.format("id: {}, name: {}", this.getId(), this.getName()));
+        sb.append(String.format("Tables: {}" + Arrays.asList(this.getTables())));
+        return sb.toString();
     }
 }
