@@ -22,3 +22,11 @@ nbbuild/
 dist/
 nbdist/
 .nb-gradle/
+.gitignore
+.mvn/
+mvnw
+mvnw.cmd
+pom.xml
+src/
+src/main/resources/static/
+src/main/resources/templates/
